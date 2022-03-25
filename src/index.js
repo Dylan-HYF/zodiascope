@@ -1,10 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import './custom.scss';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
+  // <BrowserRouter>
+  //   <Routes>
+  //     <Route path="/" element={<App />} />
+  //     <Route path="login" element={<Login />} />
+  //     <Route path="bot" element={<Bot />} />
+  //   </Routes>
+  // </BrowserRouter>,
   <React.StrictMode>
     <App />
   </React.StrictMode>,
