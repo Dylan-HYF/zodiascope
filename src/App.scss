@@ -18,5 +18,25 @@ header {
 }
 main {
   text-align: center;
-
+}
+.arrow {
+  font-size: 3em;
+}
+.preview {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 40px;
+  align-items: center;
+}
+.zodiac-detail {
+  color: white;
+  width: 50%;   
+}
+@include media-breakpoint-down(lg) {
+  .arrow {
+    font-size: 150px;
+  }
+  .zodiac-detail {
+    width: 100%;   
+  }
 }
