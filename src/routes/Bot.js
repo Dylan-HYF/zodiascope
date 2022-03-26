@@ -31,7 +31,7 @@ export const Bot = () => {
       </section>
       <div className="w-75 align-self-center">
         <BsThreeDots className="display-5" />
-        <input type="text" className="form-control rounded-pill" placeholder="chat" />
+        <input type="text" className="form-control rounded-pill text-light" placeholder="chat" />
       </div>
     </div>
   )
