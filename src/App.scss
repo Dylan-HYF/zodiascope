@@ -15,12 +15,19 @@ header {
     text-decoration: none;
     margin: 0 10px;
   }
+  .logout {
+    background: none;
+    border: none;
+  }
 }
 main {
   text-align: center;
 }
 .arrow {
   font-size: 3em;
+}
+.little-arrow {
+  font-size: 20px;
 }
 .preview {
   display: flex;
@@ -39,6 +46,45 @@ main {
   border-radius: 20px;
   width: 220px;
 }
+.narrow {
+  width: 150px;
+  margin: 0 5px;
+}
+.input {
+  width: 80px;
+  height: 80px;
+  border: 1px solid $body-color;
+  border-radius: 20px;
+  background: transparent;
+  color: #FFFFFF;
+  outline: none;
+  text-align: center;
+  font-size: 2.3em;
+  margin: 0 10px;
+}
+.prediction-w {
+  width: 60%;
+}
+.ring {
+  z-index: 0;
+  width: 300px;
+  top: -15px;
+  right: -100px;
+}
+.z-index-1 {
+  z-index: 1;
+}
+.btn:focus {
+  outline: none!important;
+  box-shadow: none!important;
+}
+.analysis-sign {
+  width: 35%;
+}
+.analysis-block {
+  border-bottom: 1px solid $body-color;
+  width: 50%;
+}
 @include media-breakpoint-down(lg) {
   .arrow {
     font-size: 150px;
@@ -46,9 +92,20 @@ main {
   .zodiac-detail {
     width: 100%;   
   }
+  
+  
 }
 @include media-breakpoint-down(md) {
   .chat-text {
     font-size: 12px!important;
+  }
+  .prediction-w {
+    width: 100%;
+  }
+  .analysis-sign {
+    width: 100%;
+  }
+  .analysis-block {
+    width: 90%;
   }
 }
