@@ -1,55 +1,68 @@
 @import './custom.scss';
+
 header {
   display: flex;
   justify-content: space-between;
   padding: 20px 0;
   margin: 0 40px;
   border-bottom: 1px solid $body-color;
+
   .logo {
     font-weight: bold;
     color: white;
     text-decoration: none;
   }
+
   .header-link {
     color: white;
     text-decoration: none;
     margin: 0 10px;
   }
+
   .logout {
     background: none;
     border: none;
   }
 }
+
 main {
   text-align: center;
 }
+
 .arrow {
   font-size: 3em;
 }
+
 .little-arrow {
   font-size: 20px;
 }
+
 .preview {
   display: flex;
   justify-content: space-between;
   padding: 10px 40px;
   align-items: center;
 }
+
 .zodiac-detail {
   color: white;
-  width: 50%;   
+  width: 50%;
 }
+
 .section-center {
   margin-top: -100px;
 }
+
 .btn-primary {
   border-radius: 20px;
   width: 220px;
 }
+
 .narrow {
   width: 150px;
   margin: 0 5px;
 }
+
 .input {
   width: 80px;
   height: 80px;
@@ -62,50 +75,75 @@ main {
   font-size: 2.3em;
   margin: 0 10px;
 }
+
 .prediction-w {
   width: 60%;
 }
+
 .ring {
   z-index: 0;
   width: 300px;
   top: -15px;
   right: -100px;
 }
+
 .z-index-1 {
   z-index: 1;
 }
+
 .btn:focus {
-  outline: none!important;
-  box-shadow: none!important;
+  outline: none !important;
+  box-shadow: none !important;
 }
+
 .analysis-sign {
   width: 35%;
 }
+
 .analysis-block {
   border-bottom: 1px solid $body-color;
   width: 50%;
 }
+
 @include media-breakpoint-down(lg) {
   .arrow {
     font-size: 150px;
   }
+
   .zodiac-detail {
-    width: 100%;   
+    width: 100%;
   }
-  
-  
+
+
 }
+
 @include media-breakpoint-down(md) {
   .chat-text {
-    font-size: 12px!important;
+    font-size: 12px !important;
   }
+
   .prediction-w {
     width: 100%;
   }
+
   .analysis-sign {
     width: 100%;
   }
+
+  .sign-pic {
+    width: 70% !important;
+  }
+
   .analysis-block {
     width: 90%;
+  }
+
+  .sign-btns {
+    display: flex;
+    flex-direction: column;
+
+    button {
+      margin-bottom: 10px;
+    }
   }
 }
