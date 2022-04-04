@@ -7,7 +7,7 @@ export const Login = ({ user }) => {
     if (user.displayName) {
       return navigate("/account");
     }
-  }, [user.displayName])
+  }, [user.displayName, navigate])
   const google = () => {
     window.open('http://localhost:8000/auth/google', '_self')
   }

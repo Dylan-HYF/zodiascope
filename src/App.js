@@ -14,6 +14,7 @@ import { ZodiacPreview } from './routes/ZodiacPreview'
 import { Account } from './routes/Account'
 import { Prediction } from './routes/Prediction'
 import { Analysis } from './routes/Analysis'
+import { Sign } from './routes/Sign'
 
 
 function App() {
@@ -47,11 +48,12 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="login" element={<Login user={user} />} />
-          <Route path="account" element={<Account user={user} />} />
+          <Route path="account" element={<Account user={user} setUserData={data => setUser(data)} />} />
           <Route path="bot" element={<Bot />} />
           <Route path="preview" element={<ZodiacPreview />} />
           <Route path="prediction" element={<Prediction user={user} />} />
           <Route path="analysis" element={<Analysis user={user} />} />
+          <Route path="sign" element={<Sign user={user} />} />
         </Routes>
       </BrowserRouter>
     </div>

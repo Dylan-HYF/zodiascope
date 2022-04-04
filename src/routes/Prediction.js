@@ -7,17 +7,19 @@ import ring from '../assets/image 2.png'
 export const Prediction = ({ user }) => {
   const [prediction, setPrediction] = useState('')
   useEffect(() => {
+    let isMounted = true
     const fetchPre = async () => {
       const res = await fetch(`https://aztro.sameerkumar.website/?sign=${user.sign.toLowerCase()}&day=today`, {
         method: 'POST'
       })
       const data = await res.json()
-      setPrediction(data.description)
+      if (isMounted) setPrediction(data.description)
       console.log(data)
     }
     if (user.sign) {
       fetchPre().catch((err) => console.log(err))
     }
+    return () => { isMounted = false }
   }, [user.sign])
   return (
     <section className="px-4">

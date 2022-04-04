@@ -8,15 +8,17 @@ const images = importAll(require.context('../assets/zodiac image', false, /\.(pn
 export const Analysis = ({ user }) => {
   const [analysis, setAnalysis] = useState({})
   useEffect(() => {
+    let isMounted = true
     const fetchAnalysis = async () => {
       const res = await fetch(`http://localhost:8000/user/${user.sign}`)
       const data = await res.json()
       console.log(data)
-      setAnalysis(data)
+      if (isMounted) setAnalysis(data)
     }
     if (user.sign) {
       fetchAnalysis().catch(err => console.log(err))
     }
+    return () => { isMounted = false }
   }, [user.sign])
   return (
     <section className="px-4">

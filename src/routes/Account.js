@@ -6,13 +6,13 @@ import { Sign } from './Sign'
 import { useNavigate } from 'react-router-dom'
 const zodiac = require('zodiac-signs')('en')
 
-export const Account = ({ user }) => {
+export const Account = ({ user, setUserData }) => {
   const navigate = useNavigate()
   useEffect(() => {
     if (!user.displayName) {
       return navigate("/login");
     }
-  }, [user.displayName])
+  }, [user.displayName, navigate])
   const [dob, setDob] = useState({
     mm: '',
     dd: '',
@@ -25,31 +25,34 @@ export const Account = ({ user }) => {
       [type]: val
     })
   }
-  const insertDob = async () => {
+  const insertDob = () => {
     const sign = zodiac.getSignByDate({ day: dob.dd, month: dob.mm })
     console.log(sign)
     if (sign === -1) {
       toast.warn("Invalid Date!", { autoClose: 1000 })
       return
     }
+    toast.success("Calculating your zodiac...")
     const data = {
       sign: sign.name
     }
     // console.log(JSON.stringify(data))
-    try {
-      const res = await fetch(`http://localhost:8000/user/${user._id}`, {
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json'
-          // 'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: JSON.stringify(data)
+
+    fetch(`http://localhost:8000/user/${user._id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: JSON.stringify(data)
+    }).then((res) => res.json())
+      .then((data) => {
+        console.log(data)
+        setUserData(data.value)
+        navigate('/sign')
+
       })
-      const resData = await res.json()
-      // console.log(resData)
-    } catch (error) {
-      console.log(error)
-    }
+      .catch(err => console.log(err))
   }
   // console.log(user)
   if (!user.sign) {
