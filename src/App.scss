@@ -37,7 +37,7 @@ main {
   font-size: 20px;
 }
 
-.preview {
+.overview {
   display: flex;
   justify-content: space-between;
   padding: 10px 40px;
@@ -105,6 +105,32 @@ main {
   width: 50%;
 }
 
+.preview {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 10px 40px;
+
+  .preview-link {
+    width: 20%;
+    margin: 0 10px;
+  }
+
+  .preview-img {
+    height: 340px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    margin: 20px 0;
+  }
+
+  img {
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
 @include media-breakpoint-down(lg) {
   .arrow {
     font-size: 150px;
@@ -144,6 +170,16 @@ main {
 
     button {
       margin-bottom: 10px;
+    }
+  }
+
+  .preview {
+    .preview-link {
+      width: 40%;
+    }
+
+    .preview-img {
+      height: 250px;
     }
   }
 }
