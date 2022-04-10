@@ -20,7 +20,9 @@ export const Sign = ({ user }) => {
           <button type="button" className="btn btn-primary narrow">Analysis</button>
 
         </Link>
-        <button type="button" className="btn btn-primary narrow">Consult Bot</button>
+        <Link to="/bot">
+          <button type="button" className="btn btn-primary narrow">Consult Bot</button>
+        </Link>
       </div>
     </section>
   )

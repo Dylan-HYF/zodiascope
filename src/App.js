@@ -49,7 +49,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="login" element={<Login user={user} />} />
           <Route path="account" element={<Account user={user} setUserData={data => setUser(data)} />} />
-          <Route path="bot" element={<Bot />} />
+          <Route path="bot" element={<Bot user={user} />} />
           <Route path="preview" element={<ZodiacPreview />} />
           <Route path="prediction" element={<Prediction user={user} />} />
           <Route path="analysis" element={<Analysis user={user} />} />

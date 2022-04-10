@@ -131,6 +131,15 @@ main {
   }
 }
 
+.confirm-box {
+  left: 40%;
+  top: 40%;
+}
+
+.confirm-box__overlay {
+  background: rgb(255 255 255 / 30%);
+}
+
 @include media-breakpoint-down(lg) {
   .arrow {
     font-size: 150px;
