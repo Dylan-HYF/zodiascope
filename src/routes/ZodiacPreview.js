@@ -18,7 +18,7 @@ export const ZodiacPreview = () => {
     const fetchAnalysis = async () => {
       const res = await fetch(`http://localhost:8000/user/${zodiacSign[0]}${zodiacSign.slice(1).toLowerCase()}`)
       const data = await res.json()
-      console.log(data)
+
       if (isMounted) setAnalysis(data)
     }
     if (zodiacSign) {

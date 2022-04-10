@@ -4,7 +4,7 @@ import { importAll } from '../utils/importAll'
 
 
 const images = importAll(require.context('../assets/zodiac image', false, /\.(png|jpe?g|svg)$/));
-console.log(images)
+
 export const Sign = ({ user }) => {
   const userSign = user.sign
   return (

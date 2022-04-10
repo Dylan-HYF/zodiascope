@@ -27,7 +27,7 @@ export const Account = ({ user, setUserData }) => {
   }
   const insertDob = () => {
     const sign = zodiac.getSignByDate({ day: dob.dd, month: dob.mm })
-    console.log(sign)
+
     if (sign === -1) {
       toast.warn("Invalid Date!", { autoClose: 1000 })
       return
@@ -47,7 +47,7 @@ export const Account = ({ user, setUserData }) => {
       body: JSON.stringify(data)
     }).then((res) => res.json())
       .then((data) => {
-        console.log(data)
+
         setUserData(data.value)
         navigate('/sign')
 

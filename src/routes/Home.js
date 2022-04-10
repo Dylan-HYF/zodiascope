@@ -4,7 +4,7 @@ import { importAll } from '../utils/importAll'
 const images = importAll(require.context('../assets/zodiac', false, /\.(png|jpe?g|svg)$/));
 
 const imagesTitle = Object.entries(images).map(x => [x[0].split('.')[0], x[1]])
-console.log(imagesTitle)
+
 export const Home = () => {
   return (
     <main>

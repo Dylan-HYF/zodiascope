@@ -38,18 +38,20 @@ export const Bot = ({ user }) => {
       })
     })
     const data = await res.json()
-    console.log(data)
+
     if (data.value.message) {
       setChatHistory(
         data.value.message
       )
-      msgBox.current.scrollIntoView({ behavior: 'smooth' })
+      msgBox.current?.scrollIntoView({ behavior: 'smooth' })
     }
     setLoading(false)
   }
   useEffect(() => {
-    if (user.googleId)
-      initiate().catch(err => console.log(err))
+    let isMounted = true
+    if (user.googleId) initiate().catch(err => console.log(err))
+
+    return () => { isMounted = false }
   }, [user.googleId])
   const [inputVal, setInputVal] = useState('')
 
@@ -62,7 +64,7 @@ export const Bot = ({ user }) => {
       body: JSON.stringify({ googleId: user.googleId, message: msg })
     })
     const data = await res.json()
-    console.log('chatchat', data)
+
     setChatHistory(data.value.message)
     setInputVal('')
     msgBox.current.scrollIntoView({ behavior: 'smooth' })
@@ -70,7 +72,7 @@ export const Bot = ({ user }) => {
   }
 
   const sendMessage = () => {
-    console.log(inputVal)
+
     setLoading(true)
     const q = encodeURIComponent(inputVal.trim());
     const uri = 'https://api.wit.ai/message?v=20220409&q=' + q;
@@ -78,16 +80,9 @@ export const Bot = ({ user }) => {
     fetch(uri, { headers: { Authorization: auth } })
       .then(res => res.json())
       .then(res => {
-        console.log(Object.values(res.entities))
+
         const [[reply]] = Object.values(res.entities)
-        console.log(reply)
-        // initiate({
-        //   ...chatData,
-        //   message: [
-        //     ...chatHistory,
-        //     { user: reply.body, reply: reply.value }
-        //   ]
-        // }).catch(err => console.log(err))
+
         insertMsg({ user: reply.body, reply: reply.value }).catch(err => console.log(err))
       })
       .catch(err => console.log(err))
@@ -129,8 +124,7 @@ export const Bot = ({ user }) => {
 
           </React.Fragment>
         ))}
-        <div style={{ float: "left", clear: "both" }}
-          ref={msgBox}>
+        <div style={{ float: "left", clear: "both" }} ref={msgBox}>
         </div>
       </section>
       <div className="w-75 align-self-center px-2">

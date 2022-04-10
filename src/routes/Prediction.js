@@ -14,7 +14,7 @@ export const Prediction = ({ user }) => {
       })
       const data = await res.json()
       if (isMounted) setPrediction(data.description)
-      console.log(data)
+
     }
     if (user.sign) {
       fetchPre().catch((err) => console.log(err))

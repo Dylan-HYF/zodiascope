@@ -12,7 +12,7 @@ export const Analysis = ({ user }) => {
     const fetchAnalysis = async () => {
       const res = await fetch(`http://localhost:8000/user/${user.sign}`)
       const data = await res.json()
-      console.log(data)
+
       if (isMounted) setAnalysis(data)
     }
     if (user.sign) {

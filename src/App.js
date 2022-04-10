@@ -40,7 +40,6 @@ function App() {
     }
     getUser().catch(err => { console.log(err) })
   }, [])
-  console.log(user)
   return (
     <div className="App overflow-hidden">
       <BrowserRouter>
