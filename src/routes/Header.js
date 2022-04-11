@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import logo from '../assets/logo.png'
 
 export const Header = ({ user }) => {
   const logout = () => {
@@ -6,7 +7,10 @@ export const Header = ({ user }) => {
   }
   return (
     <header>
-      <Link to="/" className="logo">the logo</Link>
+      <Link to="/" className="logo">
+        <img src={logo} alt="Logo" style={{ width: '30px' }} className="me-2" />
+        Zodiascope
+      </Link>
       <div className="header-buttons">
         <Link to="/bot" className="header-link">Bot</Link>
         <Link to={user.displayName ? '/account' : '/login'} className="header-link">{user.displayName ? 'Account' : 'Login'}</Link>
