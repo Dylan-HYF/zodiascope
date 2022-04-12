@@ -9,7 +9,7 @@ export const Header = ({ user }) => {
     <header>
       <Link to="/" className="logo">
         <img src={logo} alt="Logo" style={{ width: '30px' }} className="me-2" />
-        Zodiascope
+        Stellar
       </Link>
       <div className="header-buttons">
         <Link to="/bot" className="header-link">Bot</Link>

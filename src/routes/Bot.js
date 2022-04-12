@@ -111,7 +111,7 @@ export const Bot = ({ user }) => {
     <div className="d-flex flex-column justify-content-around" style={{ height: '90vh' }}>
       <section style={{ height: '80%' }} className="px-2 mb-2 overflow-auto w-75 d-flex flex-column align-items-center mt-5 mx-auto">
         <p className="w-75 fs-3 align-self-start chat-text">
-          "{user.displayName}, the spirits told me you were looking for me. I am Chatbot, I'll be your guide. Would you like me to read your fortunes?"
+          "{user.displayName}, the spirits told me you were looking for me. I am Etoile, I'll be your guide. Would you like me to read your fortunes?"
         </p>
         {chatHistory.map((x, i) => (
           <React.Fragment key={i}>
